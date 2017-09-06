@@ -5,22 +5,23 @@ use strict;
 #int to str converter
 #=======================
 
-
+my $sum = 0;
 
 #main
-print "Enter a number up to 9999: \n";
-chomp($_ = <STDIN>); 
 
-#for (1..1000){
+for (1..1000){
    my @f = arrayfy($_);
    @f = stringify(@f);
    my $stringy_num = join " ", @f;
    $stringy_num =~ s/\d|#//gi;
-   $stringy_num =~ s/and *$//gi;
+   $stringy_num =~ s/ and *$//gi;
+   my @chars = ($stringy_num =~ m#\w#g );
+   $sum += @chars;
+
    print "$stringy_num\n";
-#}
+}
 
-
+print "The sum is $sum\n";
 #ARRAYFY
 #========================================================================
 
