@@ -22,10 +22,20 @@ for (1..1000){
 }
 
 print "The sum is $sum\n";
+#=======================================================================
 #ARRAYFY
 #========================================================================
 
 sub arrayfy{
+
+#each digit that compose the number becomes the element of an array, and then the elements are pushed so that units are the last element, tens are the second last element and so forth
+#For instance:
+# Number: 678
+# ==> becomes @arr, where |6|7|8|
+# as $arr[3] is undef (since is less than 1000, so it's only 4 digits), the second part of the function unshifts the elements by one
+# so : ===> |#|6|7|8|
+# now the array is ready to be stringified! :-)
+   
    (my $str) = @_;
    my @arr = split '', $str;
 #   print STDERR ">|$arr[0]|$arr[1]|$arr[2]|$arr[3]|   ###>  ";
@@ -40,6 +50,7 @@ sub arrayfy{
    return @arr;
 }
 
+#========================================================================
 #STRINGIFY
 #=========================================================================
 sub stringify{
@@ -83,7 +94,7 @@ sub stringify{
       };
 #tens
    if ($_[2] == 1){
-      $_[2] = $pos->{ten}->{$_[3]};
+      $_[2] = $pos->{ten}{$_[3]};
       pop @_;
       }
    
