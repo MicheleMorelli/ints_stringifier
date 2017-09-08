@@ -5,7 +5,9 @@ use strict;
 #int to str converter
 #=======================
 
-my $sum = 0;
+# Converts numbers into words.
+
+# my $sum = 0; # not needed anymore - but leaving it here as a reminder to myself
 
 #main
 
@@ -16,12 +18,10 @@ for (1..1000){
    $stringy_num =~ s/\d|#//gi;
    $stringy_num =~ s/ and *$//gi;
    my @chars = ($stringy_num =~ m#\w#g );
-   $sum += @chars;
-
+#   $sum += @chars; # as above
    print "$stringy_num\n";
 }
 
-print "The sum is $sum\n";
 #=======================================================================
 #ARRAYFY
 #========================================================================
